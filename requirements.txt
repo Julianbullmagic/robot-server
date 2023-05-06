@@ -3,6 +3,3 @@ imutils
 numpy
 ipython
 matplotlib
-zlib
-pickle
-pil
