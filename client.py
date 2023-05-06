@@ -10,7 +10,7 @@ import imutils
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # client_socket.connect(('0.tcp.ngrok.io', 19194))
-port=process.env.PORT||8485
+port=process.env.PORT or 8485
 console.log(port,"port")
 client_socket.connect(('https://robot-server.onrender.com', port))
 
