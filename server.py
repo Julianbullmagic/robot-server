@@ -15,7 +15,7 @@ import os
 HOST=''
 PORT=os.environ.get('PORT') or 8485
 print(PORT,"port")
-
+"""
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 print('Socket created')
 
@@ -50,3 +50,4 @@ while True:
 
     cv2.imshow('server',frame)
     cv2.waitKey(1)
+"""
