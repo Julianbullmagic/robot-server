@@ -9,10 +9,12 @@ import numpy as np
 import struct ## new
 import zlib
 from PIL import Image, ImageOps
+import os
+
 
 HOST=''
-PORT=process.env.PORT||8485
-console.log(port,"port")
+PORT=os.environ.get('PORT') or 8485
+print(PORT,"port")
 #
 # s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 # print('Socket created')
