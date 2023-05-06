@@ -11,7 +11,8 @@ import zlib
 from PIL import Image, ImageOps
 
 HOST=''
-PORT=8485
+PORT=process.env.PORT||8485
+console.log(port,"port")
 
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 print('Socket created')
@@ -41,7 +42,7 @@ while True:
         data += conn.recv(4096)
     frame_data = data[:msg_size]
     data = data[msg_size:]
-    # unpack image using pickle 
+    # unpack image using pickle
     frame=pickle.loads(frame_data, fix_imports=True, encoding="bytes")
     frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
 

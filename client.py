@@ -10,7 +10,9 @@ import imutils
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # client_socket.connect(('0.tcp.ngrok.io', 19194))
-client_socket.connect(('10.19.15.138', 8485))
+port=process.env.PORT||8485
+console.log(port,"port")
+client_socket.connect(('https://robot-server.onrender.com', port))
 
 cam = cv2.VideoCapture(0)
 img_counter = 0
@@ -33,12 +35,12 @@ while True:
     if img_counter%10==0:
         client_socket.sendall(struct.pack(">L", size) + data)
         cv2.imshow('client',frame)
-        
+
     img_counter += 1
 
     # 若按下 q 鍵則離開迴圈
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-    
+
 
 cam.release()
